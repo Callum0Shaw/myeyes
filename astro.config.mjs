@@ -9,7 +9,8 @@ export default defineConfig({
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
-        about: 'storyblok/About'
+        about: 'storyblok/About',
+        page: 'storyblok/Page'
       },
     })
   ],
