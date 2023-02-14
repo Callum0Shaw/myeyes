@@ -1,0 +1,9 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+const { blok } = Astro.props;
+---
+
+<article {...storyblokEditable(blok)} class="about__container">
+  <h3 class="he/>ader__3 about__title">{blok.title}</h3>
+  <p>{blok.text}</p>
+</article>
