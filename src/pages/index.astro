@@ -4,14 +4,12 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import Layout from '../layouts/Layout.astro';
 
 const sbApi = useStoryblokApi();
-let data;
-try {
-  data = await sbApi.get('cdn/stories/home', {
-    version: 'draft',
-  });
-} catch (error) {}
 
-const story = data.data.story;
+const { data } = await sbApi.get('cdn/stories/home', {
+  version: 'draft',
+});
+
+const story = data.story;
 ---
 
 <Layout>
