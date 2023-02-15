@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import storyblok from '@storyblok/astro';
+import vercel from '@astrojs/vercel/serverless';
 import { loadEnv } from 'vite';
 
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
