@@ -1,0 +1,37 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Picture } from '@astrojs/image/components';
+import Dots from '../components/Dots.astro';
+const { blok } = Astro.props;
+
+const info = renderRichText(blok.info);
+---
+
+<article {...storyblokEditable(blok)} class="screening__container">
+  <div class="picture__container">
+    <Picture src={blok.image.filename} widths={[340]} sizes="340px" aspectRatio="9:16" alt="alt" />
+  </div>
+  <div class="text__container">
+    <Fragment set:html={info} />
+    <p>{blok.description}</p>
+    <Dots />
+  </div>
+</article>
+<style>
+  .screening__container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: black;
+    color: white;
+  }
+  .picture__container {
+    flex: 1 1 340px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .text__container {
+    flex: 3;
+    padding: var(--sm);
+  }
+</style>

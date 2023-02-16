@@ -1,0 +1,35 @@
+---
+const { count } = Astro.props;
+---
+
+<div class="dot__container">
+  <span class="dot dot__active"></span>
+  <span class="dot dot__inactive"></span>
+  <span class="dot dot__inactive"></span>
+  <span class="dot dot__inactive"></span>
+</div>
+<style>
+  .dot__container {
+    display: flex;
+    justify-content: end;
+    gap: var(--xx-sm);
+  }
+  .dot {
+    position: relative;
+    display: inline-block;
+    background-color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+  }
+  .dot__inactive::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: black;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+  }
+</style>

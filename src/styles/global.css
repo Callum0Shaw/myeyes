@@ -1,0 +1,80 @@
+/*
+  CSS RESET: JOSH COMEAU
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*** Variables ***/
+:root {
+  /* Sizing */
+  --xx-sm: 7px;
+  --x-sm: 10.5px;
+  --sm: 15.8px;
+  --med: 23.7px;
+  --lrg: 35.5px;
+  --x-lrg: 53.3px;
+  --xx-lrg: 80px;
+}
+
+/*** SECTIONS ***/
+.section__container {
+  margin-top: var(--med);
+}
+.row__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--med);
+}
+@media (min-width: 800px) {
+  .row__container__2 {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  .row__container__3 {
+    flex-direction: row;
+  }
+}
