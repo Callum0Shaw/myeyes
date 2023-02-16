@@ -1,0 +1,44 @@
+---
+---
+
+<nav class="navbar">
+  <button class="menu__button">
+    <img class="menu__icon" src="menu.svg" alt="" />
+  </button>
+  <button class="search__button">
+    <img class="search__icon" src="search.svg" alt="" />
+  </button>
+  <menu class="menu">
+    <li class="navbar__item"><a href="#">About</a></li>
+    <li class="navbar__item"><a href="#">Shows</a></li>
+    <li class="navbar__item"><a href="# ">More</a></li>
+  </menu>
+</nav>
+<style>
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--x-sm);
+  }
+  .menu {
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    gap: var(--med);
+  }
+  .navbar__item a {
+    font-size: var(--med);
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+  }
+  .search__icon {
+    height: 26px;
+  }
+  .menu__icon {
+    height: 36px;
+  }
+</style>

@@ -45,7 +45,11 @@ h6 {
 #__next {
   isolation: isolate;
 }
-
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 /*** Variables ***/
 :root {
   /* Sizing */
@@ -58,15 +62,19 @@ h6 {
   --xx-lrg: 80px;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 /*** SECTIONS ***/
 .section__container {
-  margin-top: var(--med);
+  margin-top: var(--lrg);
 }
 .row__container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--med);
+  gap: var(--lrg);
 }
 @media (min-width: 800px) {
   .row__container__2 {

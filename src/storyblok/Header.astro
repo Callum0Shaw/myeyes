@@ -1,16 +1,21 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { storyblokEditable } from '@storyblok/astro';
+import Menu from '../components/Menu.astro';
 const { blok } = Astro.props;
-
 ---
 
-<header class="header__container">
-  <h1 class="header__1">MyEyes!MyEyes!</h1>
-  <nav class="navbar">
-    <menu class="menu">
-      <li class="navbar__item">About</li>
-      <li class="navbar__item">Shows</li>
-      <li class="navbar__item">More</li>
-    </menu>
-  </nav>
+<header {...storyblokEditable(blok)} class="header__container">
+  <h1 class="header__1">{blok.title}</h1>
+  <Menu />
 </header>
+<style>
+  h1 {
+    font-size: var(--lrg);
+  }
+  .header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: var(--med);
+  }
+</style>

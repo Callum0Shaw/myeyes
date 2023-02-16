@@ -13,7 +13,7 @@ const info = renderRichText(blok.info);
   </div>
   <div class="text__container">
     <Fragment set:html={info} />
-    <p>{blok.description}</p>
+    <p class="screening__description">{blok.description}</p>
     <Dots />
   </div>
 </article>
@@ -33,5 +33,8 @@ const info = renderRichText(blok.info);
   .text__container {
     flex: 3;
     padding: var(--sm);
+  }
+  .screening__description {
+    margin-top: var(--sm);
   }
 </style>
