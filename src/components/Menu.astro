@@ -13,21 +13,27 @@
     <li class="navbar__item"><a href="#">Shows</a></li>
     <li class="navbar__item"><a href="# ">More</a></li>
   </menu>
+  <div class="search__container">
+    <label class="search__label" for="search">Search</label>
+    <input class="search__input" type="text" name="search" id="" placeholder="Search" />
+  </div>
 </nav>
 <style>
   .navbar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--x-sm);
+    height: fit-content;
   }
   .menu {
-    height: 100%;
     display: none;
+    width: 100%;
+    padding: 0 var(--sm);
+    background-color: gainsboro;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     list-style: none;
-    gap: var(--med);
+    gap: var(--xx-sm);
+  }
+  .menu__active {
+    display: flex;
   }
   .navbar__item a {
     font-size: var(--med);
@@ -35,10 +41,49 @@
     text-decoration: none;
     color: black;
   }
+  .search__button {
+    position: absolute;
+    top: 16px;
+    right: 0;
+  }
+  .menu__button {
+    position: absolute;
+    top: calc(16px - 5px);
+    right: 30px;
+  }
   .search__icon {
     height: 26px;
   }
   .menu__icon {
     height: 36px;
   }
+  .search__container {
+    display: none;
+  }
+  .search__container__active {
+    display: block;
+  }
 </style>
+<script>
+  const menuButton = document.querySelector('.menu__button');
+  const menuList = document.querySelector('.menu');
+
+  menuButton.addEventListener('click', (e) => handleMenuClick(e));
+
+  function handleMenuClick(e) {
+    e.preventDefault();
+    if (menuList.classList.contains('menu__active')) menuList.classList.remove('menu__active');
+    else menuList.classList.add('menu__active');
+  }
+  const searchButton = document.querySelector('.search__button');
+  const searchContainer = document.querySelector('.search__container');
+
+  searchButton.addEventListener('click', (e) => handlesearchClick(e));
+
+  function handlesearchClick(e) {
+    e.preventDefault();
+    if (searchContainer.classList.contains('search__container__active'))
+      searchContainer.classList.remove('search__container__active');
+    else searchContainer.classList.add('search__container__active');
+  }
+</script>

@@ -10,12 +10,26 @@ const { blok } = Astro.props;
 </header>
 <style>
   h1 {
-    font-size: var(--lrg);
+    font-size: var(--med);
   }
+  @media (min-width: 380px) {
+    h1 {
+      font-size: var(--lrg);
+    }
+  }
+  @media (min-width: 620px) {
+    h1 {
+      font-size: var(--x-lrg);
+    }
+  }
+  @media (min-width: 821px) {
+    h1 {
+      font-size: var(--xx-lrg);
+    }
+  }
+
   .header__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    position: relative;
     margin-bottom: var(--med);
   }
 </style>
