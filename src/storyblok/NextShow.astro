@@ -62,6 +62,7 @@ const description = renderRichText(content.description);
   }
   .info__container {
     padding: var(--sm);
+    padding-bottom: var(--lrg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,7 +76,6 @@ const description = renderRichText(content.description);
   }
 </style>
 <script is:inline define:vars={{ content }}>
-  console.log(content);
     var swiper = new Swiper(`.swiper-${content._uid}`, {
       pagination: {
         el: '.swiper-pagination',

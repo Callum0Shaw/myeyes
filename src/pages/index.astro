@@ -16,4 +16,26 @@ const story = data.story;
 <Layout>
   <StoryblokComponent blok={story.content} />
 </Layout>
+<script is:inline>
+  const thingContainers = document.querySelectorAll('.things__container');
 
+  thingContainers.forEach((c) => {
+    c.addEventListener('click', (e) => handleMaskToggle(e));
+  });
+  function handleMaskToggle(e) {
+    if (window.screen.width < 600) {
+      const text = e.target.querySelector('.things__description__mobile');
+      const mask = e.target.lastElementChild;
+      console.log(e.target);
+      if (text.style.display === 'none' || !text.style.display) {
+        text.style.display = 'block';
+        text.style.left = 0;
+        mask.style.opacity = '0.7';
+      } else {
+        text.style.display = 'none';
+        text.style.left = '-500px';
+        mask.style.opacity = '0.0';
+      }
+    }
+  }
+</script>
