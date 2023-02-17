@@ -9,12 +9,11 @@ const info = renderRichText(blok.info);
 
 <article {...storyblokEditable(blok)} class="things__container">
   <div class="picture__container">
-    <Picture src={blok.image.filename} widths={[340]} sizes="340px" aspectRatio="9:16" alt="alt" />
+    <Picture src={blok.image.filename} widths={[340]} sizes="340px" aspectRatio="3:4" alt="alt" />
   </div>
   <div class="text__container">
     <Fragment set:html={info} />
     <p class="things__description">{blok.description}</p>
-    <Dots />
   </div>
 </article>
 <style>
@@ -24,18 +23,19 @@ const info = renderRichText(blok.info);
     flex-direction: row;
     background-color: black;
     color: white;
-    max-height: 460px;
+    margin-bottom: var(--xx-lrg);
   }
   .picture__container {
-    aspect-ratio: 9 / 16;
+    flex: 1;
     object-fit: cover;
-    min-width: 150px;
     height: 100%;
+    width: 100%;
   }
   .text__container {
+    flex: 1;
     padding: var(--sm);
   }
   .things__description {
-    margin-top: var(--sm);
+    margin-top: var(--med);
   }
 </style>
