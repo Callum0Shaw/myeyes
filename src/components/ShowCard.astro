@@ -9,7 +9,7 @@ const description = renderRichText(content.description);
 ---
 
 <article {...storyblokEditable(content)} class="screening__container">
-  <div class="swiper mySwiper">
+  <div class={`swiper swiper-${content._uid}`}>
     <div class="swiper-wrapper">
       {
         content.photos.map((image, i) => {
@@ -60,9 +60,9 @@ const description = renderRichText(content.description);
   }
 </style>
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" /> -->
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script is:inline>
-  var swiper = new Swiper('.mySwiper', {
+<script is:inline define:vars={{ content }}>
+console.log(content);
+  var swiper = new Swiper(`.swiper-${content._uid}`, {
     pagination: {
       el: '.swiper-pagination',
       clickable: 'true',

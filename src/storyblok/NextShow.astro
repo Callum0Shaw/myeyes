@@ -10,7 +10,7 @@ const description = renderRichText(content.description);
 ---
 
 <section {...storyblokEditable(blok)} class="hero__container">
-  <div class="swiper mySwiper">
+  <div class={`swiper swiper-${content._uid}`}>
     <div class="swiper-wrapper">
       {
         content.photos.map((image, i) => {
@@ -74,3 +74,12 @@ const description = renderRichText(content.description);
     margin-bottom: var(--sm);
   }
 </style>
+<script is:inline define:vars={{ content }}>
+  console.log(content);
+    var swiper = new Swiper(`.swiper-${content._uid}`, {
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: 'true',
+      },
+    });
+  </script>
