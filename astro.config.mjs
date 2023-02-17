@@ -19,7 +19,6 @@ export default defineConfig({
       components: {
         about: 'storyblok/About',
         form: 'storyblok/Form',
-        header: 'storyblok/Header',
         nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',
         previousShows: 'storyblok/PreviousShows',

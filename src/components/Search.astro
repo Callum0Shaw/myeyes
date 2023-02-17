@@ -7,7 +7,16 @@
 </div>
 <style>
   .search__container {
+    position: absolute;
+    background-color: white;
+    padding: 0 4px 4px 4px;
+    border-radius: 2px;
+    z-index: 10;
+    right: 0;
+    top: 70%;
     display: none;
+    width: calc(100vw - var(--sm) - var(--sm) );
+    max-width: 350px;
   }
   .search__container__active {
     display: block;

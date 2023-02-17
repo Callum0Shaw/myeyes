@@ -34,8 +34,8 @@ const description = renderRichText(content.description);
   <div class="info__container">
     <div class="text__container">
       <h2>Next Show:</h2>
-      <p>{content.date}</p>
       <h3 class="header__3 hero__header">{content.title}</h3>
+      <p class='show__date'>{content.date}</p>
       <Fragment set:html={description} />
     </div>
   </div>
@@ -71,7 +71,7 @@ const description = renderRichText(content.description);
   picture {
     width: 100%;
   }
-  h3 {
+  .show__date {
     margin-bottom: var(--sm);
   }
 </style>
