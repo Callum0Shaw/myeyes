@@ -7,34 +7,35 @@ const { blok } = Astro.props;
 const info = renderRichText(blok.info);
 ---
 
-<article {...storyblokEditable(blok)} class="screening__container">
+<article {...storyblokEditable(blok)} class="things__container">
   <div class="picture__container">
     <Picture src={blok.image.filename} widths={[340]} sizes="340px" aspectRatio="9:16" alt="alt" />
   </div>
   <div class="text__container">
     <Fragment set:html={info} />
-    <p class="screening__description">{blok.description}</p>
+    <p class="things__description">{blok.description}</p>
     <Dots />
   </div>
 </article>
 <style>
-  .screening__container {
+  .things__container {
+    flex: 1;
     display: flex;
     flex-direction: row;
-    flex: 1;
     background-color: black;
     color: white;
+    max-height: 460px;
   }
   .picture__container {
-    flex: 1 1 340px;
-    width: 100%;
+    aspect-ratio: 9 / 16;
     object-fit: cover;
+    min-width: 150px;
+    height: 100%;
   }
   .text__container {
-    flex: 3;
     padding: var(--sm);
   }
-  .screening__description {
+  .things__description {
     margin-top: var(--sm);
   }
 </style>

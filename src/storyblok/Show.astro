@@ -1,0 +1,38 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Picture } from '@astrojs/image/components';
+import Dots from '../components/Dots.astro';
+
+const { blok } = Astro.props;
+
+const description = renderRichText(blok.description);
+---
+
+<article {...storyblokEditable(blok)} class="show__container">
+  {
+    blok.photos.map((image, i) => {
+      return (
+        <Picture
+          class={`picture__container picture__container__${blok._uid} picture__container__${i} ${
+            i === 0 ? 'picture__container__active' : 'picture__container__inactive'
+          }`}
+          src={image.filename}
+          widths={[900]}
+          sizes="900px"
+          aspectRatio="16:9"
+          alt="alt"
+        />
+      );
+    })
+  }
+  <div class="data__container">
+    <div class="text__container">
+      <h3 class="header__3 hero__header">{blok.title}</h3>
+      <p>{blok.date}</p>
+      <p>{blok.location}</p>
+      <Fragment set:html={description} />
+    </div>
+    <Dots blok={'hero'} count={5} />
+  </div>
+</article>
+<style></style>

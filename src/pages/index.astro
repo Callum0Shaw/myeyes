@@ -7,6 +7,7 @@ const sbApi = useStoryblokApi();
 
 const { data } = await sbApi.get('cdn/stories/home', {
   version: 'draft',
+  resolve_relations: 'previousShows.shows,nextShow.nextShow',
 });
 
 const story = data.story;
@@ -15,3 +16,4 @@ const story = data.story;
 <Layout>
   <StoryblokComponent blok={story.content} />
 </Layout>
+

@@ -7,7 +7,7 @@ const { blok } = Astro.props;
 <main {...storyblokEditable(blok)}>
   {
     blok.body?.map((blok) => {
-      return <StoryblokComponent blok={blok} />;
+      return <StoryblokComponent blok={blok}/>;
     })
   }
 </main>

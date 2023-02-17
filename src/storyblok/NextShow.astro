@@ -1,0 +1,76 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Picture } from '@astrojs/image/components';
+import Dots from '../components/Dots.astro';
+
+const { blok } = Astro.props;
+const content = blok.nextShow.content;
+
+const description = renderRichText(content.description);
+---
+
+<section {...storyblokEditable(blok)} class="hero__container">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {
+        content.photos.map((image, i) => {
+          return (
+            <div class="swiper-slide">
+              <Picture
+                class="picture__container"
+                src={image.filename}
+                widths={[900]}
+                sizes="900px"
+                aspectRatio="16:9"
+                alt="alt"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="info__container">
+    <div class="text__container">
+      <h2>Next Show:</h2>
+      <p>{content.date}</p>
+      <h3 class="header__3 hero__header">{content.title}</h3>
+      <Fragment set:html={description} />
+    </div>
+  </div>
+</section>
+<style>
+  .hero__container {
+    position: relative;
+    background-color: black;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  @media (min-width: 940px) {
+    .hero__container {
+      flex-direction: row;
+    }
+  }
+  .swiper {
+    flex: 2 2 600px;
+    object-fit: cover;
+    height: 100%;
+  }
+  .info__container {
+    padding: var(--sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 300px;
+  }
+  picture {
+    width: 100%;
+  }
+  h3 {
+    margin-bottom: var(--sm);
+  }
+</style>

@@ -20,11 +20,12 @@ export default defineConfig({
         about: 'storyblok/About',
         form: 'storyblok/Form',
         header: 'storyblok/Header',
-        hero: 'storyblok/Hero',
+        nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',
+        previousShows: 'storyblok/PreviousShows',
         row_of_2: 'storyblok/RowOf2',
-        row_of_3: 'storyblok/RowOf3',
-        screening: 'storyblok/Screening',
+        show: 'storyblok/Show',
+        showPage: 'storyblok/ShowPage',
         things: 'storyblok/Things'
       },
       useCustomApi: false

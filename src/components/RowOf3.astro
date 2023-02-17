@@ -1,0 +1,14 @@
+---
+const { title, bloks, Component } = Astro.props;
+---
+
+<section class="section__container">
+  <h2>{title}</h2>
+  <div class="row__container row__container__3">
+    {
+      bloks.map((blok) => {
+        return <Component content={blok.content} />;
+      })
+    }
+  </div>
+</section>

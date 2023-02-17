@@ -1,0 +1,71 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Picture } from '@astrojs/image/components';
+import '../styles/swiper.css';
+
+const { content } = Astro.props;
+
+const description = renderRichText(content.description);
+---
+
+<article {...storyblokEditable(content)} class="screening__container">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      {
+        content.photos.map((image, i) => {
+          return (
+            <div class="swiper-slide">
+              <Picture
+                class="picture__container"
+                src={image.filename}
+                widths={[640]}
+                sizes="640px"
+                aspectRatio="16:9"
+                alt="alt"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="info__container">
+    <h3 class="screening__title">{content.title}</h3>
+    <p>{content.date}</p>
+    <Fragment set:html={description} />
+  </div>
+</article>
+<style>
+  .screening__container {
+    flex: 1;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    min-width: 0;
+  }
+  .picture__container {
+    height: 100%;
+    object-fit: cover;
+  }
+  .picture__container__inactive {
+    display: none;
+  }
+  .info__container {
+    padding: var(--sm);
+    padding-bottom: var(--lrg);
+    flex: 1;
+  }
+</style>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" /> -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script is:inline>
+  var swiper = new Swiper('.mySwiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: 'true',
+    },
+  });
+</script>

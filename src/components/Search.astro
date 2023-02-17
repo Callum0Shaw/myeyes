@@ -1,3 +1,25 @@
 ---
-
 ---
+
+<div class="search__container">
+  <label class="search__label" for="search">Search</label>
+  <input class="search__input" type="text" name="search" id="" placeholder="Search" />
+</div>
+<style>
+  .search__container {
+    display: none;
+  }
+  .search__container__active {
+    display: block;
+  }
+  .search__label {
+    display: none;
+  }
+  .search__input {
+    border: none;
+    width: 100%;
+    padding: var(--xx-sm) var(--sm);
+    border-bottom: 1px solid grey;
+    outline: none;
+  }
+</style>

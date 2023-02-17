@@ -1,0 +1,12 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import ShowCard from '../components/ShowCard.astro';
+import RowOf3 from '../components/RowOf3.astro';
+
+const { blok } = Astro.props;
+const shows = blok.shows;
+---
+
+<section {...storyblokEditable(blok)}>
+  <RowOf3 title="Previous Shows:" bloks={shows} Component={ShowCard} />
+</section>
