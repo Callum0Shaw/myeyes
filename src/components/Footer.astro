@@ -1,0 +1,33 @@
+---
+---
+
+<footer class="footer__container">
+  <div class="logo__container">Logo</div>
+  <div class="social__container">
+    <p>Connect with us:</p>
+  </div>
+  <div class="details__container">
+    <p>My Eyes! My Eyes!</p>
+    <p>Cookie Policy</p>
+    <p>Equal Opportunities Policy</p>
+    <p>Privacy Policy</p>
+    <p>Website by Callum Shaw</p>
+  </div>
+</footer>
+<style>
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+    margin: var(--x-lrg) 0;
+    gap: var(--sm);
+  }
+  @media (min-width: 620px) {
+    .footer__container {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
+  .details__container {
+    
+  }
+</style>
