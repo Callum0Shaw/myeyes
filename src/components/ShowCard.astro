@@ -30,7 +30,7 @@ const description = renderRichText(content.description);
     </div>
     <div class="swiper-pagination"></div>
   </div>
-  <div class="info__container">
+  <div class="text__container">
     <h3 class="screening__title">{content.title}</h3>
     <p>{content.date}</p>
     <Fragment class="paragraph__container" set:html={description} />
@@ -53,9 +53,7 @@ const description = renderRichText(content.description);
   .picture__container__inactive {
     display: none;
   }
-  .info__container {
-    padding: var(--sm);
-    padding-bottom: var(--lrg);
+  .text__container {
     flex: 1;
   }
 </style>

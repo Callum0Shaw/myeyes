@@ -63,14 +63,26 @@ button {
   /* Colours */
   --black: #0a0a0a;
   --dark-grey: #141414;
-  --grey:#949494 ;
+  --grey: #949494;
   --light-grey: #acacac;
-  --highlight: #388080; 
+  --highlight: #388080;
 }
-
 
 body {
   font-family: 'Open Sans', sans-serif;
+  margin: auto;
+  background-color: #c4c4c4;
+}
+main,
+header,
+footer {
+  max-width: 1440px;
+  margin: auto;
+  padding: 0 var(--med);
+  background-color: white;
+}
+main {
+  padding: var(--lrg) var(--med);
 }
 
 /*** SECTIONS ***/
@@ -128,9 +140,12 @@ a:hover {
 strong {
   font-weight: 700;
 }
-
+.text__container {
+  padding: var(--sm) var(--med) var(--med) var(--sm);
+}
 .paragraph__container {
   margin-top: var(--sm);
+  max-width: 400px;
 }
 
 /*** SWIPER ***/

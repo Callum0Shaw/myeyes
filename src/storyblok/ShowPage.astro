@@ -47,6 +47,9 @@ const description = renderRichText(blok.description);
     padding: var(--sm);
     padding-bottom: var(--lrg);
   }
+  .picture__container {
+    max-height: 600px;
+  }
 </style>
 <script is:inline define:vars={{ blok }}>
   var swiper = new Swiper(`.swiper-${blok._uid}`, {
