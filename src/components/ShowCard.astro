@@ -16,7 +16,7 @@ const description = renderRichText(content.description);
           return (
             <div class="swiper-slide">
               <Picture
-                class="picture__container"
+                class={`picture__container picture__${content._uid}`}
                 src={image.filename}
                 widths={[640]}
                 sizes="640px"
@@ -33,7 +33,7 @@ const description = renderRichText(content.description);
   <div class="info__container">
     <h3 class="screening__title">{content.title}</h3>
     <p>{content.date}</p>
-    <Fragment set:html={description} />
+    <Fragment class="paragraph__container" set:html={description} />
   </div>
 </article>
 <style>
@@ -42,7 +42,7 @@ const description = renderRichText(content.description);
     display: flex;
     position: relative;
     flex-direction: column;
-    background-color: black;
+    background-color: var(--black);
     color: white;
     min-width: 0;
   }
@@ -62,6 +62,9 @@ const description = renderRichText(content.description);
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" /> -->
 <script is:inline define:vars={{ content }}>
   var swiper = new Swiper(`.swiper-${content._uid}`, {
+    navigation: {
+      nextEl: `.picture__${content._uid}`,
+    },
     pagination: {
       el: '.swiper-pagination',
       clickable: 'true',

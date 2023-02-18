@@ -5,6 +5,20 @@
   <div class="logo__container">Logo</div>
   <div class="social__container">
     <p>Connect with us:</p>
+    <div class="social__icons">
+      <a class="social__icon" href="">
+        <img src={'/twitter.svg'} alt="twitter icon" />
+      </a>
+      <a class="social__icon" href="">
+        <img src={'/insta.svg'} alt="instagram icon" />
+      </a>
+      <a class="social__icon" href="">
+        <img src={'/facebook.svg'} alt="facebook icon" />
+      </a>
+      <a class="social__icon" href="">
+        <img src={'/mail.svg'} alt="mail icon" />
+      </a>
+    </div>
   </div>
   <div class="details__container">
     <p>My Eyes! My Eyes!</p>
@@ -20,6 +34,8 @@
     flex-direction: column;
     margin: var(--x-lrg) 0;
     gap: var(--sm);
+    border-top: 2px #c4c4c4 solid;
+    padding-top: var(--lrg);
   }
   @media (min-width: 620px) {
     .footer__container {
@@ -28,6 +44,19 @@
     }
   }
   .details__container {
-    
+  }
+  .social__icons {
+    margin-top: var(--x-sm);
+    display: flex;
+    flex-direction: row;
+    gap: var(--sm);
+  }
+  .social__icon img {
+    height: var(--lrg);
+    width: auto;
+    transition: scale 0.2s ease-in-out;
+  }
+  .social__icon img:hover {
+    scale: 1.1;
   }
 </style>

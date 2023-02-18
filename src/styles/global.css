@@ -60,7 +60,14 @@ button {
   --lrg: 35.5px;
   --x-lrg: 53.3px;
   --xx-lrg: 80px;
+  /* Colours */
+  --black: #0a0a0a;
+  --dark-grey: #141414;
+  --grey:#949494 ;
+  --light-grey: #acacac;
+  --highlight: #388080; 
 }
+
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -121,6 +128,12 @@ a:hover {
 strong {
   font-weight: 700;
 }
+
+.paragraph__container {
+  margin-top: var(--sm);
+}
+
+/*** SWIPER ***/
 
 .swiper {
   position: static;

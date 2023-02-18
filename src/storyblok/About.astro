@@ -5,11 +5,11 @@ const { blok } = Astro.props;
 
 <article {...storyblokEditable(blok)} class="article__container">
   <h3 class="about__title">{blok.title}</h3>
-  <p>{blok.text}</p>
+  <p class="paragraph__container">{blok.text}</p>
 </article>
 <style>
   .article__container {
-    background-color: black;
+    background-color: var(--black);
     color: white;
     flex: 1;
     padding: var(--sm);

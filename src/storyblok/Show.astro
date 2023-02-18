@@ -30,7 +30,7 @@ const description = renderRichText(blok.description);
       <h3 class="header__3 hero__header">{blok.title}</h3>
       <p>{blok.date}</p>
       <p>{blok.location}</p>
-      <Fragment set:html={description} />
+      <Fragment class="paragraph__container" set:html={description} />
     </div>
     <Dots blok={'hero'} count={5} />
   </div>

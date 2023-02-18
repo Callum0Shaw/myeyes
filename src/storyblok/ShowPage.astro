@@ -33,14 +33,14 @@ const description = renderRichText(blok.description);
       <h1>{blok.title}</h1>
       <p>{blok.date}</p>
       <p>{blok.location}</p>
-      <Fragment set:html={description} />
+      <Fragment class="paragraph__container" set:html={description} />
     </div>
   </article>
 </main>
 <style>
   .show__container {
     position: relative;
-    background-color: black;
+    background-color:var(--black);
     color: white;
   }
   .description__container {
@@ -50,6 +50,9 @@ const description = renderRichText(blok.description);
 </style>
 <script is:inline define:vars={{ blok }}>
   var swiper = new Swiper(`.swiper-${blok._uid}`, {
+    navigation: {
+      nextEl: '.picture__container',
+    },
     pagination: {
       el: '.swiper-pagination',
       clickable: 'true',

@@ -7,28 +7,28 @@
 </div>
 <style>
   .search__container {
-    position: absolute;
     background-color: white;
     padding: 0 4px 4px 4px;
     border-radius: 2px;
     z-index: 10;
-    right: 0;
-    top: 70%;
     display: none;
-    width: calc(100vw - var(--sm) - var(--sm) );
-    max-width: 350px;
+    width: 100%;
   }
   .search__container__active {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
   .search__label {
     display: none;
   }
   .search__input {
     border: none;
-    width: 100%;
-    padding: var(--xx-sm) var(--sm);
-    border-bottom: 1px solid grey;
     outline: none;
+    width: 100%;
+    max-width: 600px;
+    padding: var(--xx-sm) var(--sm);
+    border-bottom: 1px solid var(--dark-grey);
   }
+  
 </style>
