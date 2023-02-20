@@ -78,11 +78,19 @@ header,
 footer {
   max-width: 1440px;
   margin: auto;
-  padding: 0 var(--med);
+  padding: 0 var(--sm);
   background-color: white;
 }
 main {
-  padding: var(--lrg) var(--med);
+  padding: var(--lrg) var(--sm);
+}
+@media (min-width: 600px) {
+  main,
+  header,
+  footer {
+    padding-left: var(--med);
+    padding-right: var(--med);
+  }
 }
 
 /*** SECTIONS ***/

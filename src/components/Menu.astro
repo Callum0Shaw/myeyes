@@ -32,10 +32,10 @@ import Search from './Search.astro';
   </div>
 
   <div class="gcse-search"></div>
-  <menu class="menu">
-    <li class="navbar__item"><a href="#">About</a></li>
-    <li class="navbar__item"><a href="#">Shows</a></li>
-    <li class="navbar__item"><a href="# ">More</a></li>
+  <menu class="dropdown__menu">
+    <li class="navbar__item"><a href="/">Home</a></li>
+    <li class="navbar__item"><a href="/shows">Shows</a></li>
+    <li class="navbar__item"><a href="# ">About</a></li>
   </menu>
   <Search />
 </nav>
@@ -48,9 +48,8 @@ import Search from './Search.astro';
     top: var(--xx-sm);
     right: 0;
   }
-  .menu {
+  .dropdown__menu {
     display: none;
-    transform: translatey(-100%);
     width: 100%;
     padding: 0 var(--sm);
     background-color: var(--grey);
@@ -58,13 +57,10 @@ import Search from './Search.astro';
     align-items: start;
     list-style: none;
     gap: var(--xx-sm);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    animation: scaleDown .25s ease-in-out forwards;
+    transform-origin: top center;
   }
-  .menu__active {
+  .dropdown__menu__active {
     display: flex;
     transform: translateY(0);
   }
@@ -91,20 +87,33 @@ import Search from './Search.astro';
   svg {
     height: 100%;
   }
+  @keyframes scaleDown {
+    0% {
+      transform: scaleY(0);
+    }
+
+    80% {
+      transform: scaleY(1.1);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
 </style>
 <script>
   const menuButton = document.querySelector('.menu__button');
-  const menuList = document.querySelector('.menu');
+  const menuList = document.querySelector('.dropdown__menu');
 
   menuButton.addEventListener('click', (e) => handleMenuClick(e));
 
   function handleMenuClick(e) {
     e.preventDefault();
-    if (menuList.classList.contains('menu__active')) {
-      menuList.classList.remove('menu__active');
+    if (menuList.classList.contains('dropdown__menu__active')) {
+      menuList.classList.remove('dropdown__menu__active');
       menuList.style.transform = 'translateY(-100%)';
     } else {
-      menuList.classList.add('menu__active');
+      menuList.classList.add('dropdown__menu__active');
       menuList.style.transform = 'translateY(0)';
     }
   }

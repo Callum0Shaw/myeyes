@@ -18,6 +18,7 @@ export default defineConfig({
       bridge: true,
       components: {
         about: 'storyblok/About',
+        allShows: 'storyblok/AllShows',
         form: 'storyblok/Form',
         nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',

@@ -1,0 +1,40 @@
+---
+import { useStoryblokApi, renderRichText, storyblokEditable } from '@storyblok/astro';
+import ShowCard from '../components/ShowCard.astro';
+
+const { blok } = Astro.props;
+const description = renderRichText(blok.description);
+
+const sbApi = useStoryblokApi();
+
+const { data } = await sbApi.get('cdn/stories', {
+  version: 'draft',
+  starts_with: 'shows/',
+  is_startpage: false,
+});
+
+const { stories } = data;
+---
+
+<section {...storyblokEditable(blok)} class="shows__section">
+  <h2>{blok.title}</h2>
+  <Fragment class="paragraph__container" set:html={description} />
+  <div class="shows__container">
+    {
+      stories.map((show) => {
+        return <ShowCard content={show.content} />;
+      })
+    }
+  </div>
+</section>
+<style>
+  .shows__container {
+    margin-top: var(--med);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-gap: var(--med);
+  }
+</style>
+<script is:inline define:vars={{ stories }}>
+  console.log(stories);
+</script>
