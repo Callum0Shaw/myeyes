@@ -2,7 +2,6 @@
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import Layout from '../../layouts/Layout.astro';
-import ShowCard from '../../components/ShowCard.astro';
 
 const sbApi = useStoryblokApi();
 
@@ -16,3 +15,4 @@ const story = data.story;
 <Layout>
   <StoryblokComponent blok={story.content} />
 </Layout>
+<script is:inline define:vars={{ story }}></script>
