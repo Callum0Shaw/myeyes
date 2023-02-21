@@ -16,7 +16,7 @@ import Search from './Search.astro';
           d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"></path></svg
       >
     </button>
-    <button class="search__button">
+    <!-- <button class="search__button">
       <svg
         class="search__icon"
         fill="#000000"
@@ -28,14 +28,19 @@ import Search from './Search.astro';
           d="M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z"
         ></path></svg
       >
-    </button>
+    </button> -->
   </div>
 
   <div class="gcse-search"></div>
   <menu class="dropdown__menu">
     <li class="navbar__item"><a href="/">Home</a></li>
     <li class="navbar__item"><a href="/shows">Shows</a></li>
-    <li class="navbar__item"><a href="# ">About</a></li>
+    <li class="navbar__item"><a href="/about">About</a></li>
+  </menu>
+  <menu class="desktop__menu">
+    <li class="navbar__item"><a href="/">Home</a></li>
+    <li class="navbar__item"><a href="/shows">Shows</a></li>
+    <li class="navbar__item"><a href="/about ">About</a></li>
   </menu>
   <Search />
 </nav>
@@ -46,7 +51,25 @@ import Search from './Search.astro';
   .nav__buttons {
     position: absolute;
     top: var(--xx-sm);
-    right: 0;
+    right: var(--sm);
+
+  }
+  .desktop__menu {
+    position: absolute;
+    display: none;
+    top: var(--xx-sm);
+    right: var(--med);
+    list-style: none;
+  }
+  @media (min-width: 600px) {
+    .desktop__menu {
+      display: flex;
+      flex-direction: row;
+      gap: var(--med);
+    }
+    .nav__buttons {
+      display: none;
+    }
   }
   .dropdown__menu {
     display: none;
@@ -57,7 +80,7 @@ import Search from './Search.astro';
     align-items: start;
     list-style: none;
     gap: var(--xx-sm);
-    animation: scaleDown .25s ease-in-out forwards;
+    animation: scaleDown 0.25s ease-in-out forwards;
     transform-origin: top center;
   }
   .dropdown__menu__active {
@@ -121,15 +144,15 @@ import Search from './Search.astro';
   const searchContainer = document.querySelector('.search__container');
   const searchInput = document.querySelector('.search__input');
 
-  searchButton.addEventListener('click', (e) => handlesearchClick(e));
+  // searchButton.addEventListener('click', (e) => handlesearchClick(e));
 
-  function handlesearchClick(e) {
-    e.preventDefault();
-    if (searchContainer.classList.contains('search__container__active')) {
-      searchContainer.classList.remove('search__container__active');
-    } else {
-      searchContainer.classList.add('search__container__active');
-      (searchInput as HTMLElement).focus();
-    }
-  }
+  // function handlesearchClick(e) {
+  //   e.preventDefault();
+  //   if (searchContainer.classList.contains('search__container__active')) {
+  //     searchContainer.classList.remove('search__container__active');
+  //   } else {
+  //     searchContainer.classList.add('search__container__active');
+  //     (searchInput as HTMLElement).focus();
+  //   }
+  // }
 </script>

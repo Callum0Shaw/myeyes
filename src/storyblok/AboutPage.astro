@@ -1,0 +1,19 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+const { blok } = Astro.props;
+
+const description = renderRichText(blok.description);
+---
+
+<article {...storyblokEditable(blok)} class="article__container">
+  <h3 class="about__title">{blok.title}</h3>
+  <Fragment class="paragraph__container" set:html={description} />
+</article>
+<style>
+  .article__container {
+    background-color: var(--black);
+    color: white;
+    flex: 1;
+    padding: var(--sm);
+  }
+</style>

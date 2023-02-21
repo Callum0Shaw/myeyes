@@ -18,13 +18,13 @@ export default defineConfig({
       bridge: true,
       components: {
         about: 'storyblok/About',
+        aboutPage: 'storyblok/AboutPage',
         allShows: 'storyblok/AllShows',
         form: 'storyblok/Form',
         nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',
         previousShows: 'storyblok/PreviousShows',
         row_of_2: 'storyblok/RowOf2',
-        show: 'storyblok/Show',
         showPage: 'storyblok/ShowPage',
         things: 'storyblok/Things'
       },
