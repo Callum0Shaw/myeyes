@@ -3,7 +3,10 @@ import Menu from '../components/Menu.astro';
 ---
 
 <header class="header__container">
-  <h1 class="header__1">My Eyes! My Eyes!</h1>
+  <h1 class="header__1">
+    My Eyes! My Eyes!
+  </h1>
+  <img src="/MyEyes_swirly.png" alt="" />
   <Menu />
 </header>
 <style>
@@ -12,7 +15,13 @@ import Menu from '../components/Menu.astro';
   }
 </style>
 <style>
+  header {
+    padding-top: var(--sm);
+  }
   h1 {
+    display: none;
+  }
+  img {
     max-width: 70%;
   }
 </style>
