@@ -31,8 +31,13 @@ const { stories } = data;
   .shows__container {
     margin-top: var(--med);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-gap: var(--med);
+  }
+  @media (min-width: 600px) {
+    .shows__container {
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    }
   }
 </style>
 <script is:inline define:vars={{ stories }}>

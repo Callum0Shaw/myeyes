@@ -1,7 +1,6 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
 import { Picture } from '@astrojs/image/components';
-import Dots from '../components/Dots.astro';
 
 const { blok } = Astro.props;
 const content = blok.nextShow.content;
@@ -61,8 +60,6 @@ const description = renderRichText(content.description);
     height: 100%;
   }
   .info__container {
-    padding: var(--sm);
-    padding-bottom: var(--lrg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -117,13 +117,13 @@ main {
 
 /*** TYPOGRAPHY ***/
 :root {
-  --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
-  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
-  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
-  --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
-  --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-  --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+  --font-size-sm: clamp(0.78rem, 0.22vw + 0.72rem, 0.9rem);
+  --font-size-base: clamp(0.88rem, 0.45vw + 0.76rem, 1.13rem);
+  --font-size-md: clamp(0.98rem, 0.77vw + 0.79rem, 1.41rem);
+  --font-size-lg: clamp(1.11rem, 1.18vw + 0.81rem, 1.76rem);
+  --font-size-xl: clamp(1.25rem, 1.73vw + 0.81rem, 2.2rem);
+  --font-size-xxl: clamp(1.4rem, 2.45vw + 0.79rem, 2.75rem);
+  --font-size-xxxl: clamp(1.58rem, 3.38vw + 0.73rem, 3.43rem);
 }
 h1 {
   font-size: var(--font-size-xl);
@@ -142,6 +142,7 @@ p {
 }
 a {
   text-decoration: var(--font-size-sm);
+  color: var(--highlight);
 }
 a:hover {
 }
@@ -149,11 +150,11 @@ strong {
   font-weight: 700;
 }
 .text__container {
-  padding: var(--sm) var(--med) var(--med) var(--sm);
+  padding: var(--sm) var(--med) var(--lrg) var(--sm);
 }
 .paragraph__container {
   margin-top: var(--sm);
-  max-width: 400px;
+  /* max-width: 400px; */
 }
 
 /*** SWIPER ***/
