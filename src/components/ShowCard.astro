@@ -1,9 +1,10 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
-import { Picture } from '@astrojs/image/components';
+import { Picture, Image } from '@astrojs/image/components';
 import '../styles/swiper.css';
 
-const { content } = Astro.props;
+const blok = Astro.props;
+const content = blok.content;
 
 const description = renderRichText(content.description);
 ---
@@ -15,15 +16,21 @@ const description = renderRichText(content.description);
         content.photos.map((image, i) => {
           return (
             <div class="swiper-slide">
-              <Picture
-                class={`picture__container picture__${content._uid}`}
-                src={image.filename}
-                widths={[640]}
-                sizes="640px"
-                aspectRatio="16:9"
-                alt="alt"
-              />
+              <a href={`/${blok}`}>{blok.name}
+                </a>
+                <picture>
+                  <img src={`${image.filename}/m/800x450/`} alt="" />
+                </picture>
             </div>
+            // <Image
+            //   class={`picture__container picture__${content._uid}`}
+            //   src={image.filename}
+            //   width={640}
+            //   height={360}
+            //   aspectRatio="16:9"
+            //   alt="alt"
+            //   fit="contain"
+            // />
           );
         })
       }
@@ -56,16 +63,26 @@ const description = renderRichText(content.description);
   .text__container {
     flex: 1;
   }
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 </style>
 <script is:inline define:vars={{ content }}>
   var swiper = new Swiper(`.swiper-${content._uid}`, {
     navigation: {
-      nextEl: `.picture__${content._uid}`,
+      // nextEl: `.picture__${content._uid}`,
     },
     pagination: {
       el: '.swiper-pagination',
       clickable: 'true',
     },
     autoplay: true,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
+    speed: 600,
   });
 </script>

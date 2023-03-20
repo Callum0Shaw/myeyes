@@ -13,7 +13,7 @@ export default defineConfig({
   integrations: [
     image(),
     storyblok({
-      accessToken: 'r9ie4IIkISoPVfCgX7Kx7Att',
+      accessToken: env.STORYBLOK_TOKEN,
       apiOptions: {},
       bridge: true,
       components: {
@@ -25,7 +25,6 @@ export default defineConfig({
         page: 'storyblok/Page',
         previousShows: 'storyblok/PreviousShows',
         row_of_2: 'storyblok/RowOf2',
-        // show: 'storyblok/Show',
         showPage: 'storyblok/ShowPage',
         things: 'storyblok/Things'
       },

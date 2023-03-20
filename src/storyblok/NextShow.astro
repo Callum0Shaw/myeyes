@@ -1,14 +1,22 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { getFormattedDate, getNextShow } from '../utils/funcs';
+
 import { Picture } from '@astrojs/image/components';
 
-const { blok } = Astro.props;
-const content = blok.nextShow.content;
 
-const description = renderRichText(content.description);
+const {status, show} = await getNextShow()
+const description = renderRichText(show.content.description);
+
+const content = show.content;
+
+// const { blok } = Astro.props;
+// const content = blok.nextShow.content;
+
+// const description = renderRichText(content.description);
 ---
 
-<section {...storyblokEditable(blok)} class="hero__container">
+<section  class="hero__container">
   <div class={`swiper swiper-${content._uid}`}>
     <div class="swiper-wrapper">
       {
@@ -32,7 +40,7 @@ const description = renderRichText(content.description);
   </div>
   <div class="info__container">
     <div class="text__container">
-      <h2>Next Show:</h2>
+      <h2>Our {status} Show:</h2>
       <h3 class="header__3 hero__header">{content.title}</h3>
       <p class='show__date'>{content.date}</p>
       <Fragment class="paragraph__container" set:html={description} />

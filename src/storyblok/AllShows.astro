@@ -7,13 +7,23 @@ const description = renderRichText(blok.description);
 
 const sbApi = useStoryblokApi();
 
-const { data } = await sbApi.get('cdn/stories', {
+const stories = await sbApi.getAll('cdn/stories', {
   version: 'draft',
   starts_with: 'shows/',
-  is_startpage: false,
+  is_startpage: 0,
 });
 
-const { stories } = data;
+function sortDates(first, second) {
+  const now = new Date();
+  const firstDate = new Date(first);
+  const secondDate = new Date(second);
+
+  if (firstDate > now && secondDate > now) return secondDate - firstDate;
+  else if (firstDate <= now && secondDate <= now) return firstDate - secondDate;
+  else return firstDate > now ? 1 : -1;
+}
+
+const sortedStories = stories.sort(sortDates);
 ---
 
 <section {...storyblokEditable(blok)} class="shows__section">
@@ -21,8 +31,13 @@ const { stories } = data;
   <Fragment class="paragraph__container" set:html={description} />
   <div class="shows__container">
     {
-      stories.map((show) => {
-        return <ShowCard content={show.content} />;
+      sortedStories.map((show) => {
+        return (
+          <div>
+            <h1>{show.content.date}</h1>
+            <ShowCard content={show.content} />
+          </div>
+        );
       })
     }
   </div>
