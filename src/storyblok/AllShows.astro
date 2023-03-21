@@ -34,7 +34,6 @@ const sortedStories = stories.sort(sortDates);
       sortedStories.map((show) => {
         return (
           <div>
-            <h1>{show.content.date}</h1>
             <ShowCard content={show.content} />
           </div>
         );
@@ -55,6 +54,3 @@ const sortedStories = stories.sort(sortDates);
     }
   }
 </style>
-<script is:inline define:vars={{ stories }}>
-  console.log(stories);
-</script>

@@ -20,12 +20,14 @@ export default defineConfig({
         about: 'storyblok/About',
         aboutPage: 'storyblok/AboutPage',
         allShows: 'storyblok/AllShows',
+        allThings: 'storyblok/AllThings',
         form: 'storyblok/Form',
         nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',
         previousShows: 'storyblok/PreviousShows',
         row_of_2: 'storyblok/RowOf2',
         showPage: 'storyblok/ShowPage',
+        thingPage: 'storyblok/ThingPage',
         things: 'storyblok/Things'
       },
       useCustomApi: false

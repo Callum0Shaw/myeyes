@@ -1,0 +1,22 @@
+---
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const storyblokApi = useStoryblokApi();
+const slug = Astro.params.slug;
+
+let content;
+try {
+  const { data } = await storyblokApi.get(`cdn/stories/things/${slug}`, {
+    version: 'draft',
+  });
+  if (data) {
+    content = data.story.content;
+  }
+} catch (error) {
+  console.log(error);
+}
+---
+
+<Layout><StoryblokComponent blok={content} /></Layout>

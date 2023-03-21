@@ -1,0 +1,62 @@
+---
+import { Picture } from '@astrojs/image/components';
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+const description = renderRichText(blok.description);
+---
+
+<main {...storyblokEditable(blok)}>
+  <article class="show__container">
+    <h1>{blok.name}</h1>
+    <!-- <div class={`swiper swiper-${blok._uid}`}>
+      <div class="swiper-wrapper">
+        {
+          blok.photos.map((image, i) => {
+            return (
+              <div class="swiper-slide">
+                <Picture
+                  class="picture__container"
+                  src={image.filename}
+                  widths={[640]}
+                  sizes="640px"
+                  aspectRatio="16:9"
+                  alt="alt"
+                />
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div> -->
+    <div class="description__container">
+      <Fragment class="paragraph__container" set:html={description} />
+    </div>
+  </article>
+</main>
+<style>
+  .show__container {
+    position: relative;
+    background-color:var(--black);
+    color: white;
+  }
+  .description__container {
+    padding: var(--sm);
+    padding-bottom: var(--lrg);
+  }
+  .picture__container {
+    max-height: 600px;
+  }
+</style>
+<script is:inline define:vars={{ blok }}>
+  var swiper = new Swiper(`.swiper-${blok._uid}`, {
+    navigation: {
+      nextEl: '.picture__container',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: 'true',
+    },
+  });
+</script>

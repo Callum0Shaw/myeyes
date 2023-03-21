@@ -1,0 +1,28 @@
+---
+import { useStoryblokApi, renderRichText, storyblokEditable } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+const description = renderRichText(blok.description);
+
+
+
+---
+
+<section {...storyblokEditable(blok)} class="shows__section">
+  <h2>{blok.title}</h2>
+  <Fragment class="paragraph__container" set:html={description} />
+  
+</section>
+<style>
+  .shows__container {
+    margin-top: var(--med);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: var(--med);
+  }
+  @media (min-width: 600px) {
+    .shows__container {
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    }
+  }
+</style>
