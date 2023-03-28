@@ -8,7 +8,7 @@ const sbApi = useStoryblokApi();
 
 const { data } = await sbApi.get('cdn/stories/home', {
   version: 'draft',
-  resolve_relations: 'previousShows.shows,nextShow.nextShow',
+  resolve_relations: 'previousShows.shows,nextShow.nextShow,highlightedThings.things',
 });
 
 const story = data.story;

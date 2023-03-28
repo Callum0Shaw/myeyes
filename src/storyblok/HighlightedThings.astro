@@ -1,0 +1,12 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import ThingCard from '../components/ThingCard.astro';
+import RowOf2 from '../components/RowOf2.astro';
+
+const { blok } = Astro.props;
+const things = blok.things;
+---
+
+<section {...storyblokEditable(blok)}>
+  <RowOf2 title="Things we're loving:" bloks={things} Component={ThingCard} />
+</section>

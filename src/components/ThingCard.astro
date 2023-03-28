@@ -1,0 +1,74 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+import { Picture } from '@astrojs/image/components';
+
+const blok = Astro.props;
+const content = blok.content;
+
+const info = renderRichText(content.description);
+---
+<article {...storyblokEditable(content)} class="things__container">
+  <div class="picture__container">
+    <Picture src={content.image.filename} widths={[340]} sizes="340px" aspectRatio="3:4" alt="alt" />
+  </div>
+  <div class="text__container">
+    <p>{content.name}</p>
+    <Fragment set:html={info} />
+  </div>
+  <div class="things__mask"></div>
+</article>
+<style>
+  .things__container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--black);
+    color: white;
+  }
+  .things__mask {
+    height: 100%;
+    width: 100%;
+    background-color: var(--black);
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+    transition: all 0.2s;
+  }
+  .things__description__mobile {
+    display: none;
+    width: 66%;
+    padding: var(--med);
+    z-index: 100;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: -500px;
+    pointer-events: none;
+    transition: all 0.2s;
+  }
+  .picture__container {
+    flex: 1;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+  .text__container {
+    flex: 1;
+    padding: var(--sm);
+    pointer-events: none;
+  }
+  .things__description {
+    margin-top: var(--med);
+    pointer-events: none;
+  }
+  @media (max-width: 500px) {
+    .picture__container {
+      flex: 2;
+    }
+    .things__description {
+      display: none;
+    }
+  }
+</style>

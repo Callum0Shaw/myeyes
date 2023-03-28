@@ -22,6 +22,7 @@ export default defineConfig({
         allShows: 'storyblok/AllShows',
         allThings: 'storyblok/AllThings',
         form: 'storyblok/Form',
+        highlightedThings: 'storyblok/HighlightedThings',
         nextShow: 'storyblok/NextShow',
         page: 'storyblok/Page',
         previousShows: 'storyblok/PreviousShows',

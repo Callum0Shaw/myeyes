@@ -1,17 +1,32 @@
 ---
 import { useStoryblokApi, renderRichText, storyblokEditable } from '@storyblok/astro';
+import ThingCard from '../components/ThingCard.astro';
 
 const { blok } = Astro.props;
 const description = renderRichText(blok.description);
 
 
+const sbApi = useStoryblokApi();
 
+const stories = await sbApi.getAll('cdn/stories', {
+  version: 'draft',
+  starts_with: 'things/',
+  is_startpage: 0,
+});
 ---
 
 <section {...storyblokEditable(blok)} class="shows__section">
   <h2>{blok.title}</h2>
   <Fragment class="paragraph__container" set:html={description} />
-  
+  <div class="shows__container">
+    {
+      stories.map((story) => {
+        return (
+          <ThingCard content={story.content}/>
+        );
+      })
+    }
+  </div>
 </section>
 <style>
   .shows__container {

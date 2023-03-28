@@ -103,7 +103,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--lrg);
+  gap: var(--med);
 }
 @media (min-width: 800px) {
   .row__container__2 {
