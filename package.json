@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@astrojs/image": "^0.15.0",
 		"@astrojs/vercel": "^3.1.1",
+		"@mailerlite/mailerlite-nodejs": "^1.0.1",
 		"@storyblok/astro": "^2.0.5",
 		"astro": "^2.0.11",
 		"swiper": "^9.0.5",

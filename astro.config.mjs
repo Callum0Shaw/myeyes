@@ -6,7 +6,7 @@ import mkcert from 'vite-plugin-mkcert';
 import { loadEnv } from 'vite';
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
-// https://astro.build/config
+
 export default defineConfig({
   output: 'server',
   adapter: vercel(),
