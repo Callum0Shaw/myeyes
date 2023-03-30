@@ -7,6 +7,8 @@ const { blok } = Astro.props;
 if (Astro.request.method === 'POST') {
   try {
     const data = await Astro.request.formData();
+    console.log(data);
+    
 
     const firstName = data.get('first_name');
     const lastName = data.get('last_name');
